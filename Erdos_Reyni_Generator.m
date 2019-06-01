@@ -13,7 +13,7 @@ function A = Erdos_Reyni_Generator(N,L,p,seed)
 %   [N] = Number of nodes 
 %   [E] = Number of links, E=[] ---> G(N,p)
 %   [p] = Probability of graph being generated, P=[] ---> G(N,L) 
-%   [Seed] = 'default', to default rng or any number to used as seed
+%   [seed] = 'default', to default rng or any number to used as seed
 %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -21,7 +21,7 @@ rng(seed)
 A=zeros(N);
 
 % if p=[] then graph is generated via G(N,L)
-% if E=[] then graph is generated via G(N,p)
+% if L=[] then graph is generated via G(N,p)
 if isempty(p)
     while sum(sum(triu(A))) < L %continue loop until graph has L links 
         i=randi(N);
